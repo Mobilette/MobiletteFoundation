@@ -149,7 +149,7 @@
 				6940B4E71BFE25B70071D668 /* MBOAuthCredential.swift */,
 			);
 			name = Source;
-			path = ../Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 		8722F88D812A4D7C3B43DC0D /* Pods */ = {

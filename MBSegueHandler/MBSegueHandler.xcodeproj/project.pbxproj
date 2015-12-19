@@ -134,7 +134,7 @@
 				6940B5631BFE62EA0071D668 /* MBSegueHandler.swift */,
 			);
 			name = Source;
-			path = ../Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

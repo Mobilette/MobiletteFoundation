@@ -8,7 +8,6 @@
 
 import Foundation
 import Security
-import MBError
 
 public class MBOAuthCredential: NSObject, NSCoding
 {

@@ -152,7 +152,7 @@
 				6940B5DD1BFE79DB0071D668 /* MBConfigurationHelper.swift */,
 			);
 			name = Source;
-			path = ../Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -152,7 +152,7 @@
 				6940B5A01BFE78E40071D668 /* MBRouterProtocol.swift */,
 			);
 			name = Source;
-			path = ../Source;
+			path = ../../Source;
 			sourceTree = "<group>";
 		};
 		FD85DDDB4FFDDB84A0F8011D /* Pods */ = {
