@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E97010E661A78A3D1812321B3BE44CCA35F1D704",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E97010E661A78A3D1812321B3BE44CCA35F1D704" : 0,
+    "9CF30DD30784596A165CC03DEEF7C9048F5099BA" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "874B7178-A478-4FB3-9B6B-6847162FB518",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E97010E661A78A3D1812321B3BE44CCA35F1D704" : "MBConfigurationHelper\/",
+    "9CF30DD30784596A165CC03DEEF7C9048F5099BA" : "..\/Linkydog"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MBConfigurationHelper",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MBConfigurationHelper.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/gitlab.kiwixi.com\/linky-dog\/lk-ios-application.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9CF30DD30784596A165CC03DEEF7C9048F5099BA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Mobilette\/MBConfigurationHelper",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E97010E661A78A3D1812321B3BE44CCA35F1D704"
+    }
+  ]
+}

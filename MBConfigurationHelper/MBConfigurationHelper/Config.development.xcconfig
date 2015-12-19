@@ -1,0 +1,10 @@
+API_CONFIGURATION_FILE = APIConfiguration.development
+
+// Extention is used to change the bundle identifier to specify the build
+// configuration (if needed)
+EXTENSION = .dev
+
+// Set API URL used by API.
+// Note: Use the same flags for swift and objective-c.
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) DEBUG=1 VERBOSE=1 INFORMATION=1 WARNING=1 ERROR=1
+OTHER_SWIFT_FLAGS = -D MOCK -D VERBOSE -D INFORMATION -D WARNING -D ERROR
