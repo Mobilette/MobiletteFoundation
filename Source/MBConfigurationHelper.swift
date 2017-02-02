@@ -8,20 +8,20 @@
 
 import Foundation
 
-public class MBConfigurationHelper
+open class MBConfigurationHelper
 {
-    public class func configuration(fileKey: String, key: String) -> String?
+    open class func configuration(_ fileKey: String, key: String) -> String?
     {
         if let configuration = MBConfigurationHelper.configurationFile(fileKey) {
-            return configuration.objectForKey(key) as? String
+            return configuration.object(forKey: key) as? String
         }
         return nil
     }
     
-    public class func configurationFile(fileKey: String) -> NSDictionary?
+    open class func configurationFile(_ fileKey: String) -> NSDictionary?
     {
-        let file = NSBundle.mainBundle().objectForInfoDictionaryKey(fileKey) as? String
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "plist") {
+        let file = Bundle.main.object(forInfoDictionaryKey: fileKey) as? String
+        if let path = Bundle.main.path(forResource: file, ofType: "plist") {
             return NSDictionary(contentsOfFile: path)
         }
         return nil

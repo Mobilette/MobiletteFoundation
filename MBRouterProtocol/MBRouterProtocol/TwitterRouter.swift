@@ -26,14 +26,14 @@ extension TwitterRouterProtocolV2 {
 
 enum UserRouter: TwitterRouterProtocolV2, URLRequestConvertible
 {
-    case Create([String: AnyObject])
-    case Update(String, [String: AnyObject])
+    case create([String: AnyObject])
+    case update(String, [String: AnyObject])
     
     var method: Alamofire.Method {
         switch self {
-        case .Create:
+        case .create:
             return .POST
-        case .Update:
+        case .update:
             return .PATCH
         }
     }
@@ -44,9 +44,9 @@ enum UserRouter: TwitterRouterProtocolV2, URLRequestConvertible
     
     var path: String {
         switch self {
-        case .Create:
+        case .create:
             return "/\(resource)/"
-        case .Update(let identifier, _):
+        case .update(let identifier, _):
             return "/\(resource)/\(identifier)/"
         }
     }
@@ -57,9 +57,9 @@ enum UserRouter: TwitterRouterProtocolV2, URLRequestConvertible
         let mutableURLRequest: NSMutableURLRequest = self.baseURLRequest
         
         switch self {
-        case .Create(let parameters):
+        case .create(let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-        case .Update(_, let parameters):
+        case .update(_, let parameters):
             return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
         }
     }

@@ -26,7 +26,7 @@ class ViewController: UIViewController, SegueHandlerType {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         switch segueIdentifierForSegue(segue) {
         case .ShowRed:
@@ -40,7 +40,7 @@ class ViewController: UIViewController, SegueHandlerType {
     
     // MARK: - Actions
     
-    @IBAction func doSomethingMagic(sender: AnyObject!) {
+    @IBAction func doSomethingMagic(_ sender: AnyObject!) {
         performSegueWithIdentifier(.ShowMagic, sender: nil)
     }
 }

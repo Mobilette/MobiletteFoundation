@@ -51,11 +51,11 @@ extension RouterProtocol
         guard let baseURLString = self.baseURLString else {
             fatalError("Router must have a valid base URL (\(self.baseURLString)).")
         }
-        guard let URL = NSURL(string: baseURLString) else {
+        guard let URL = URL(string: baseURLString) else {
             fatalError("Can not initialize an URL (\(baseURLString)).")
         }
         
-        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(self.path))
+        let mutableURLRequest = NSMutableURLRequest(url: URL.appendingPathComponent(self.path))
         mutableURLRequest.HTTPMethod = self.method.rawValue
         
         if let token = self.OAuthToken {

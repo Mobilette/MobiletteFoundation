@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userRouter = UserRouter.Create(["test": 42])
+        let userRouter = UserRouter.create(["test": 42])
         print(userRouter.URLRequest)
     }
 
