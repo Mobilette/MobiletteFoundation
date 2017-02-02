@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let apiURL = MBConfigurationHelper.configuration("WEB_SERVICE_BASE_URL", key: "API_URL")
+        let apiURL = MBConfigurationHelper.configuration(fileKey: "WEB_SERVICE_BASE_URL", key: "API_URL")
         print(apiURL ?? "No value for API_URL in configuration file.")
         // Do any additional setup after loading the view, typically from a nib.
     }

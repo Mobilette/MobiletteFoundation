@@ -12,7 +12,7 @@ open class MBConfigurationHelper
 {
     open class func configuration(fileKey: String, key: String) -> String?
     {
-        if let configuration = MBConfigurationHelper.configurationFile(fileKey) {
+        if let configuration = MBConfigurationHelper.configurationFile(fileKey: fileKey) {
             return configuration.object(forKey: key) as? String
         }
         return nil
