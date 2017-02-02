@@ -106,7 +106,7 @@ open class MBOAuthCredential: NSObject, NSCoding
         
         let synchronizeResult = userDefaults.synchronize()
         if synchronizeResult == false {
-            throw MBUserDefaultsError.CanNotSynchronizeUserDefault
+            throw MBUserDefaultsError.canNotSynchronizeUserDefault
         }
     }
     

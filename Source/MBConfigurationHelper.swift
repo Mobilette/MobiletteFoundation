@@ -10,7 +10,7 @@ import Foundation
 
 open class MBConfigurationHelper
 {
-    open class func configuration(_ fileKey: String, key: String) -> String?
+    open class func configuration(fileKey: String, key: String) -> String?
     {
         if let configuration = MBConfigurationHelper.configurationFile(fileKey) {
             return configuration.object(forKey: key) as? String
@@ -18,7 +18,7 @@ open class MBConfigurationHelper
         return nil
     }
     
-    open class func configurationFile(_ fileKey: String) -> NSDictionary?
+    open class func configurationFile(fileKey: String) -> NSDictionary?
     {
         let file = Bundle.main.object(forInfoDictionaryKey: fileKey) as? String
         if let path = Bundle.main.path(forResource: file, ofType: "plist") {
