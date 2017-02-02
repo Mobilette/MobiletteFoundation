@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import MobiletteFoundation
 
 public protocol RouterProtocol: CustomStringConvertible
 {
@@ -16,7 +15,7 @@ public protocol RouterProtocol: CustomStringConvertible
     var baseURLStringFromConfiguration: String? { get }
     var baseURLString: String? { get }
     var OAuthToken: String? { get }
-    var method: Alamofire.Method { get }
+    var method: Alamofire.HTTPMethod { get }
     var path: String { get }
     var baseURLRequest: NSMutableURLRequest { get }
 }
@@ -28,7 +27,7 @@ extension RouterProtocol
     }
     
     public var baseURLStringFromConfiguration: String? {
-        return MBConfigurationHelper.configuration("WEB_SERVICE_BASE_URL", key: "API_URL")
+        return MBConfigurationHelper.configuration(fileKey: "WEB_SERVICE_BASE_URL", key: "API_URL")
     }
     
     public var baseURLString: String? {
@@ -52,12 +51,12 @@ extension RouterProtocol
         guard let baseURLString = self.baseURLString else {
             fatalError("Router must have a valid base URL (\(self.baseURLString)).")
         }
-        guard let URL = URL(string: baseURLString) else {
+        guard let URL = NSURL(string: baseURLString) else {
             fatalError("Can not initialize an URL (\(baseURLString)).")
         }
         
-        let mutableURLRequest = NSMutableURLRequest(url: URL.appendingPathComponent(self.path))
-        mutableURLRequest.HTTPMethod = self.method.rawValue
+        let mutableURLRequest = NSMutableURLRequest(url: URL.appendingPathComponent(self.path)!)
+        mutableURLRequest.httpMethod = self.method.rawValue
         
         if let token = self.OAuthToken {
             mutableURLRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")

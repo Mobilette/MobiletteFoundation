@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MobiletteFoundation
 
 public enum MBUserDefaultsError: MBError
 {

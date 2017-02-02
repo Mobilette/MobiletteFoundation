@@ -82,7 +82,7 @@ open class MBOAuthCredential: NSObject, NSCoding
             let _ = self.accessToken,
             let _ = self.refreshToken
             else {
-                throw MBOAuthCredentialError.BadCredentials
+                throw MBOAuthCredentialError.badCredentials
         }
         
         let query = [
@@ -120,7 +120,7 @@ open class MBOAuthCredential: NSObject, NSCoding
         }
         else {
             guard let _userIdentifier = self.userIdentifierFromNSUserDefaults() else {
-                throw MBOAuthCredentialError.UserIdentifierMissing
+                throw MBOAuthCredentialError.userIdentifierMissing
             }
             identifier = _userIdentifier
         }
@@ -137,10 +137,10 @@ open class MBOAuthCredential: NSObject, NSCoding
             throw MBOAuthCredentialError.unknown(Int(secItemCopyStatus))
         }
         guard let retrievedData = result as? Data else {
-            throw MBOAuthCredentialError.CanNotCopy
+            throw MBOAuthCredentialError.canNotCopy
         }
         guard let credential = NSKeyedUnarchiver.unarchiveObject(with: retrievedData) as? MBOAuthCredential else {
-            throw MBOAuthCredentialError.CanNotUnarchiveObject
+            throw MBOAuthCredentialError.canNotUnarchiveObject
         }
         return credential
     }
