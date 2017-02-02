@@ -16,6 +16,7 @@
 		6940B4D91BFE25710071D668 /* MBOAuthCredentialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6940B4D81BFE25710071D668 /* MBOAuthCredentialUITests.swift */; };
 		6940B4E81BFE25B70071D668 /* MBOAuthCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6940B4E71BFE25B70071D668 /* MBOAuthCredential.swift */; };
 		7C6675E2678A1517B8B133A1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6605D557E4F7828F788B01ED /* Pods.framework */; };
+		F22C57694BCFD1754B038529 /* Pods_MBOAuthCredential.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD05B2B61FA1CB8FB2F664E /* Pods_MBOAuthCredential.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DD05B2B61FA1CB8FB2F664E /* Pods_MBOAuthCredential.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MBOAuthCredential.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		598986FC14ADDFE51A068122 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6605D557E4F7828F788B01ED /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6940B4B51BFE25710071D668 /* MBOAuthCredential.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBOAuthCredential.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +55,8 @@
 		6940B4DA1BFE25710071D668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6940B4E71BFE25B70071D668 /* MBOAuthCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBOAuthCredential.swift; sourceTree = "<group>"; };
 		7F9C34DAEDF9971FDCE8B710 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9A62A526DCF5307756C947F2 /* Pods-MBOAuthCredential.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBOAuthCredential.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBOAuthCredential/Pods-MBOAuthCredential.release.xcconfig"; sourceTree = "<group>"; };
+		DDCE576396B1564E9DB00A77 /* Pods-MBOAuthCredential.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBOAuthCredential.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBOAuthCredential/Pods-MBOAuthCredential.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6675E2678A1517B8B133A1 /* Pods.framework in Frameworks */,
+				F22C57694BCFD1754B038529 /* Pods_MBOAuthCredential.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				6605D557E4F7828F788B01ED /* Pods.framework */,
+				1DD05B2B61FA1CB8FB2F664E /* Pods_MBOAuthCredential.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -157,6 +163,8 @@
 			children = (
 				598986FC14ADDFE51A068122 /* Pods.debug.xcconfig */,
 				7F9C34DAEDF9971FDCE8B710 /* Pods.release.xcconfig */,
+				DDCE576396B1564E9DB00A77 /* Pods-MBOAuthCredential.debug.xcconfig */,
+				9A62A526DCF5307756C947F2 /* Pods-MBOAuthCredential.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -168,12 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6940B4DD1BFE25710071D668 /* Build configuration list for PBXNativeTarget "MBOAuthCredential" */;
 			buildPhases = (
-				6E52D11E8B1400D016CA9EFD /* Check Pods Manifest.lock */,
+				6E52D11E8B1400D016CA9EFD /* [CP] Check Pods Manifest.lock */,
 				6940B4B11BFE25710071D668 /* Sources */,
 				6940B4B21BFE25710071D668 /* Frameworks */,
 				6940B4B31BFE25710071D668 /* Resources */,
-				939143EF56C244C080D9C45B /* Embed Pods Frameworks */,
-				1539AA90006EFE684FC8CEF9 /* Copy Pods Resources */,
+				939143EF56C244C080D9C45B /* [CP] Embed Pods Frameworks */,
+				1539AA90006EFE684FC8CEF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,13 +240,16 @@
 				TargetAttributes = {
 					6940B4B41BFE25710071D668 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0820;
 					};
 					6940B4C81BFE25710071D668 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 6940B4B41BFE25710071D668;
 					};
 					6940B4D31BFE25710071D668 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 6940B4B41BFE25710071D668;
 					};
 				};
@@ -291,49 +302,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1539AA90006EFE684FC8CEF9 /* Copy Pods Resources */ = {
+		1539AA90006EFE684FC8CEF9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MBOAuthCredential/Pods-MBOAuthCredential-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E52D11E8B1400D016CA9EFD /* Check Pods Manifest.lock */ = {
+		6E52D11E8B1400D016CA9EFD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		939143EF56C244C080D9C45B /* Embed Pods Frameworks */ = {
+		939143EF56C244C080D9C45B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MBOAuthCredential/Pods-MBOAuthCredential-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -485,25 +496,27 @@
 		};
 		6940B4DE1BFE25710071D668 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 598986FC14ADDFE51A068122 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = DDCE576396B1564E9DB00A77 /* Pods-MBOAuthCredential.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MBOAuthCredential/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mobilette.MBOAuthCredential;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		6940B4DF1BFE25710071D668 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F9C34DAEDF9971FDCE8B710 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 9A62A526DCF5307756C947F2 /* Pods-MBOAuthCredential.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MBOAuthCredential/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mobilette.MBOAuthCredential;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -515,6 +528,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mobilette.MBOAuthCredentialTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MBOAuthCredential.app/MBOAuthCredential";
 			};
 			name = Debug;
@@ -527,6 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mobilette.MBOAuthCredentialTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MBOAuthCredential.app/MBOAuthCredential";
 			};
 			name = Release;
@@ -538,6 +553,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mobilette.MBOAuthCredentialUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MBOAuthCredential;
 				USES_XCTRUNNER = YES;
 			};
@@ -550,6 +566,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.mobilette.MBOAuthCredentialUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MBOAuthCredential;
 				USES_XCTRUNNER = YES;
 			};

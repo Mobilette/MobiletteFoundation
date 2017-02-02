@@ -10,14 +10,14 @@ import Foundation
 
 public enum MBUserDefaultsError: MBError
 {
-    case Unknown(Int)
-    case CanNotSynchronizeUserDefault
+    case unknown(Int)
+    case canNotSynchronizeUserDefault
     
     public var code: Int {
         switch self {
-        case .Unknown:
+        case .unknown:
             return 2000
-        case .CanNotSynchronizeUserDefault:
+        case .canNotSynchronizeUserDefault:
             return 2001
         }
     }
@@ -28,18 +28,18 @@ public enum MBUserDefaultsError: MBError
     
     public var description: String {
         switch self {
-        case .Unknown:
+        case .unknown:
             return "Unknown error."
-        case .CanNotSynchronizeUserDefault:
+        case .canNotSynchronizeUserDefault:
             return "Can not synchronize user defaults."
         }
     }
     
     public var reason: String {
         switch self {
-        case .Unknown(let status):
+        case .unknown(let status):
             return "An unknown error with status : \(status)."
-        case .CanNotSynchronizeUserDefault:
+        case .canNotSynchronizeUserDefault:
             return "."
         }
     }

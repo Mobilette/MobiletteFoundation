@@ -9,12 +9,12 @@
 import Foundation
 import Security
 
-public class MBOAuthCredential: NSObject, NSCoding
+open class MBOAuthCredential: NSObject, NSCoding
 {
     // MARK: - Type
     
-    private struct CodingKeys {
-        static let base = NSBundle.mainBundle().bundleIdentifier! + "."
+    fileprivate struct CodingKeys {
+        static let base = Bundle.main.bundleIdentifier! + "."
         static let userIdentifier = base + "user_identifier"
         static let accessToken = base + "access_token"
         static let expirationDate = base + "expiration_date"
@@ -23,31 +23,31 @@ public class MBOAuthCredential: NSObject, NSCoding
     
     // MARK: - Property
     
-    public var userIdentifier: String? = nil
+    open var userIdentifier: String? = nil
     
-    public var token: String? {
+    open var token: String? {
         if self.isExpired() {
             return nil
         }
         return self.accessToken
     }
     
-    public var refreshToken: String? = nil
+    open var refreshToken: String? = nil
     
-    public var expirationDate: NSDate? = nil
+    open var expirationDate: Date? = nil
     
-    public var archivedOAuthCredential: NSData {
-        return NSKeyedArchiver.archivedDataWithRootObject(self)
+    open var archivedOAuthCredential: Data {
+        return NSKeyedArchiver.archivedData(withRootObject: self)
     }
     
-    private var accessToken: String? = nil
+    fileprivate var accessToken: String? = nil
     
     // MARK: - Life cycle
     
     public init(userIdentifier: String,
         accessToken: String,
         refreshToken: String,
-        expirationDate: NSDate? = nil
+        expirationDate: Date? = nil
         )
     {
         self.userIdentifier = userIdentifier
@@ -60,23 +60,23 @@ public class MBOAuthCredential: NSObject, NSCoding
     
     @objc required public init?(coder decoder: NSCoder)
     {
-        self.userIdentifier = decoder.decodeObjectForKey(CodingKeys.userIdentifier) as? String
-        self.accessToken = decoder.decodeObjectForKey(CodingKeys.accessToken) as? String
-        self.expirationDate = decoder.decodeObjectForKey(CodingKeys.expirationDate) as? NSDate
-        self.refreshToken = decoder.decodeObjectForKey(CodingKeys.refreshToken) as? String
+        self.userIdentifier = decoder.decodeObject(forKey: CodingKeys.userIdentifier) as? String
+        self.accessToken = decoder.decodeObject(forKey: CodingKeys.accessToken) as? String
+        self.expirationDate = decoder.decodeObject(forKey: CodingKeys.expirationDate) as? Date
+        self.refreshToken = decoder.decodeObject(forKey: CodingKeys.refreshToken) as? String
     }
     
-    @objc public func encodeWithCoder(coder: NSCoder)
+    @objc open func encode(with coder: NSCoder)
     {
-        coder.encodeObject(self.userIdentifier, forKey: CodingKeys.userIdentifier)
-        coder.encodeObject(self.accessToken, forKey: CodingKeys.accessToken)
-        coder.encodeObject(self.expirationDate, forKey: CodingKeys.expirationDate)
-        coder.encodeObject(self.refreshToken, forKey: CodingKeys.refreshToken)
+        coder.encode(self.userIdentifier, forKey: CodingKeys.userIdentifier)
+        coder.encode(self.accessToken, forKey: CodingKeys.accessToken)
+        coder.encode(self.expirationDate, forKey: CodingKeys.expirationDate)
+        coder.encode(self.refreshToken, forKey: CodingKeys.refreshToken)
     }
     
     // MARK: - Archiving
     
-    public func storeToKeychain() throws
+    open func storeToKeychain() throws
     {
         guard let userIdentifier = self.userIdentifier,
             let _ = self.accessToken,
@@ -91,18 +91,18 @@ public class MBOAuthCredential: NSObject, NSCoding
             "\(kSecValueData)"      : self.archivedOAuthCredential
             ] as NSDictionary
         
-        let secItemDeleteStatus = SecItemDelete(query as CFDictionaryRef)
+        let secItemDeleteStatus = SecItemDelete(query as CFDictionary)
         if secItemDeleteStatus != noErr && secItemDeleteStatus != errSecItemNotFound {
-            throw MBOAuthCredentialError.Unknown(Int(secItemDeleteStatus))
+            throw MBOAuthCredentialError.unknown(Int(secItemDeleteStatus))
         }
         
-        let secItemAddStatus = SecItemAdd(query as CFDictionaryRef, nil)
+        let secItemAddStatus = SecItemAdd(query as CFDictionary, nil)
         if secItemAddStatus != noErr {
-            throw MBOAuthCredentialError.Unknown(Int(secItemAddStatus))
+            throw MBOAuthCredentialError.unknown(Int(secItemAddStatus))
         }
         
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(userIdentifier, forKey: "mb_user_identifier")
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(userIdentifier, forKey: "mb_user_identifier")
         
         let synchronizeResult = userDefaults.synchronize()
         if synchronizeResult == false {
@@ -110,8 +110,8 @@ public class MBOAuthCredential: NSObject, NSCoding
         }
     }
     
-    public class func retreiveCredential(
-        userIdentifier userIdentifier: String? = nil
+    open class func retreiveCredential(
+        userIdentifier: String? = nil
         ) throws -> MBOAuthCredential
     {
         let identifier: String
@@ -134,21 +134,21 @@ public class MBOAuthCredential: NSObject, NSCoding
         var result: AnyObject?
         let secItemCopyStatus = SecItemCopyMatching(searchQuery, &result)
         if secItemCopyStatus != noErr {
-            throw MBOAuthCredentialError.Unknown(Int(secItemCopyStatus))
+            throw MBOAuthCredentialError.unknown(Int(secItemCopyStatus))
         }
-        guard let retrievedData = result as? NSData else {
+        guard let retrievedData = result as? Data else {
             throw MBOAuthCredentialError.CanNotCopy
         }
-        guard let credential = NSKeyedUnarchiver.unarchiveObjectWithData(retrievedData) as? MBOAuthCredential else {
+        guard let credential = NSKeyedUnarchiver.unarchiveObject(with: retrievedData) as? MBOAuthCredential else {
             throw MBOAuthCredentialError.CanNotUnarchiveObject
         }
         return credential
     }
     
-    private class func userIdentifierFromNSUserDefaults() -> String?
+    fileprivate class func userIdentifierFromNSUserDefaults() -> String?
     {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if let identifier = userDefaults.objectForKey("mb_user_identifier") as? String {
+        let userDefaults = UserDefaults.standard
+        if let identifier = userDefaults.object(forKey: "mb_user_identifier") as? String {
             return identifier
         }
         return nil
@@ -156,17 +156,17 @@ public class MBOAuthCredential: NSObject, NSCoding
     
     // MARK: - Authentication
     
-    public func isAuthenticated() -> Bool
+    open func isAuthenticated() -> Bool
     {
         let hasAccessToken = (self.accessToken != nil)
         return (hasAccessToken) && (!self.isExpired())
     }
     
-    public func isExpired() -> Bool
+    open func isExpired() -> Bool
     {
         if let expirationDate = self.expirationDate {
-            let today = NSDate()
-            let isExpired = (expirationDate.compare(today) == NSComparisonResult.OrderedAscending)
+            let today = Date()
+            let isExpired = (expirationDate.compare(today) == ComparisonResult.orderedAscending)
             return isExpired
         }
         return false
@@ -175,26 +175,26 @@ public class MBOAuthCredential: NSObject, NSCoding
 
 public enum MBOAuthCredentialError: MBError
 {
-    case Unknown(Int)
-    case BadCredentials
-    case BadResults()
-    case UserIdentifierMissing
-    case CanNotUnarchiveObject
-    case CanNotCopy
+    case unknown(Int)
+    case badCredentials
+    case badResults()
+    case userIdentifierMissing
+    case canNotUnarchiveObject
+    case canNotCopy
     
     public var code: Int {
         switch self {
-        case .Unknown:
+        case .unknown:
             return 1000
-        case .BadCredentials:
+        case .badCredentials:
             return 1001
-        case .BadResults:
+        case .badResults:
             return 1002
-        case .UserIdentifierMissing:
+        case .userIdentifierMissing:
             return 1003
-        case .CanNotUnarchiveObject:
+        case .canNotUnarchiveObject:
             return 1004
-        case .CanNotCopy:
+        case .canNotCopy:
             return 1005
         }
     }
@@ -205,34 +205,34 @@ public enum MBOAuthCredentialError: MBError
     
     public var description: String {
         switch self {
-        case .Unknown:
+        case .unknown:
             return "Unknown error."
-        case .BadCredentials:
+        case .badCredentials:
             return "Bad credentials."
-        case .BadResults:
+        case .badResults:
             return "Bad results."
-        case .UserIdentifierMissing:
+        case .userIdentifierMissing:
             return "User identifier missing"
-        case .CanNotUnarchiveObject:
+        case .canNotUnarchiveObject:
             return "Can not unarchive object."
-        case .CanNotCopy:
+        case .canNotCopy:
             return "Can not copy."
         }
     }
     
     public var reason: String {
         switch self {
-        case .Unknown(let status):
+        case .unknown(let status):
             return "Security function throw error with status : \(status)."
-        case .BadCredentials:
+        case .badCredentials:
             return ""
-        case .BadResults:
+        case .badResults:
             return ""
-        case .UserIdentifierMissing:
+        case .userIdentifierMissing:
             return ""
-        case .CanNotUnarchiveObject:
+        case .canNotUnarchiveObject:
             return ""
-        case .CanNotCopy:
+        case .canNotCopy:
             return ""
         }
     }

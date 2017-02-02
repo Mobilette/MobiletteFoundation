@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MBError
+import MobiletteFoundation
 
 class ViewController: UIViewController {
 

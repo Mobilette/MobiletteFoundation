@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol MBError: ErrorType
+public protocol MBError: Error
 {
     var code: Int { get }
     var domain: String { get }

@@ -28,20 +28,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func map(JSONString: String) throws
+    func map(_ JSONString: String) throws
     {
-        let mappingError = MappingError.CanNotMapIntoObject(JSONString)
+        let mappingError = MappingError.canNotMapIntoObject(JSONString)
         print("Error: \(mappingError)")
         throw mappingError
     }
     
     enum MappingError: MBError
     {
-        case CanNotMapIntoObject(String)
+        case canNotMapIntoObject(String)
         
         var code: Int {
             switch self {
-            case .CanNotMapIntoObject:
+            case .canNotMapIntoObject:
                 return 3001
             }
         }
@@ -52,14 +52,14 @@ class ViewController: UIViewController {
         
         var description: String {
             switch self {
-            case .CanNotMapIntoObject:
+            case .canNotMapIntoObject:
                 return "Can not map objects."
             }
         }
         
         var reason: String {
             switch self {
-            case .CanNotMapIntoObject(let JSONString):
+            case .canNotMapIntoObject(let JSONString):
                 return "'\(JSONString)' can not be mapped into an object."
             }
         }
