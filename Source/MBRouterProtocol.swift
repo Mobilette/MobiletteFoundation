@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import MobiletteFoundation
 
 public protocol RouterProtocol: CustomStringConvertible
 {

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 	s.name		= "MobiletteFoundation"
-	s.version		= "1.0.0"
+	s.version		= "2.0.0"
 	s.summary		= "A small set of necessary classes."
 
 	s.license 		= { :type => "MIT", :file => "LICENSE" }
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 	s.homepage		= "https://github.com/Mobilette/MobiletteFoundation"
 
 	s.platform		= :ios
-	s.platform		= :ios, "8.0"
+	s.platform		= :ios, "9.0"
 
 	s.source 		= { :git => "https://github.com/Mobilette/MobiletteFoundation.git", :tag => s.version }
 
